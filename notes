@@ -1,0 +1,50 @@
+
+
+use inquirer
+email address
+id
+role (Intern  provide school)
+engineer (github user name)
+
+Any # of team members can be entered w/ mixed job functions
+engineers and interns
+
+Create unit tests for each Class
+use jest for tests
+`npm run test`
+
+once the team is build generate HTML team roster
+with provided information
+
+main.html
+engineer.html
+intern.html
+manager.html
+
+Manager class extends employee with
+getRole() // overridden to return manager
+
+Engineer
+gitHub username
+getHub()
+getRole() // overridden to return Engineer
+
+Intern
+school
+getSchool()
+getRole() //overidden to return Intern
+
+Roster OUTPUT
+team.html page in the output directory
+Name
+ROle
+ID
+Role-specific property ( School, github profile or office number)
+
+Validation
+
+
+
+
+
+
