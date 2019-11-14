@@ -9,7 +9,7 @@ describe("Employee class", () => {
 
 		it("return full name", () => {
 			let jason = new Employee(14, 'Jason', 'Martin', 'Engineer','test@test.com','555-555-5555');
-			expect(jason.fullName).toBe('Jason Martin');
+			expect(jason.fullName()).toBe('Jason Martin');
 		});
 
 		it("return title", () => {
@@ -20,11 +20,6 @@ describe("Employee class", () => {
 		it("return office number", () => {
 			let jason = new Employee(14, 'Jason', 'Martin', 'Engineer', 'test@test.com','555-555-5555');
 			expect(jason.getOfficeNumber()).toBe('555-555-5555');
-		});
-
-		it("return role", () => {
-			let jason = new Employee(14, 'Jason', 'Martin', 'Engineer', 'test@test.com','555-555-5555');
-			expect(jason.getRole()).toBe('Title: Engineer');
 		});
 
 		it("return email", () => {
