@@ -63,7 +63,7 @@ return `
 					<li>Title: ${manager.role} </li>
 					<li>Employee ID: ${manager.employeeId}</li>
 					<li>Phone Number: ${manager.officeNumber}</li>
-					<li>Manages Team: ${manager.team}</li>
+					<li>Manages: ${manager.team}</li>
 				</ul>
 				`
 				)}
