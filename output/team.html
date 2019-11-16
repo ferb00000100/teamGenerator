@@ -1,5 +1,4 @@
-function generateHTML(managerArray, engineerArray, internArray) {
-return `
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,16 +56,7 @@ return `
 					</button>
 				</div>
 				<div class="modal-body">
-				${managerArray.map(manager =>
-				`<ul>
-					<li><strong> ${manager.firstName} ${manager.lastName} </strong></li>
-					<li>Title: ${manager.role} </li>
-					<li>Employee ID: ${manager.employeeId}</li>
-					<li>Phone Number: ${manager.officeNumber}</li>
-					<li>Manages Team: ${manager.team}</li>
-				</ul>
-				`
-				)}
+				
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -86,15 +76,7 @@ return `
 					</button>
 				</div>
 				<div class="modal-body">
-						${engineerArray.map(engineer =>
-					`<ul>
-						<li><strong> ${engineer.firstName} ${engineer.lastName} </strong></li>
-						<li>Title: ${engineer.role} </li>
-						<li>Employee ID: ${engineer.employeeId}</li>
-						<li>GitHub Username: ${engineer.github}</li>
-					</ul>
-					`
-				)}
+						
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -114,15 +96,19 @@ return `
 					</button>
 				</div>
 				<div class="modal-body">
-							${internArray.map(intern => 
-					`<ul>
-						<li><strong> ${intern.firstName} ${intern.lastName} </strong></li>
-						<li>Title: ${intern.role} </li>
-						<li>Employee ID: ${intern.employeeId}</li>
-						<li>School Attending: ${intern.school}</li>
+							<ul>
+						<li><strong> asdf asdf </strong></li>
+						<li>Title: Intern </li>
+						<li>Employee ID: 1</li>
+						<li>School Attending: asdf</li>
 					</ul>
-					`
-				)}
+					,<ul>
+						<li><strong> qwer qwer </strong></li>
+						<li>Title: Intern </li>
+						<li>Employee ID: 2</li>
+						<li>School Attending: qwer</li>
+					</ul>
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -135,6 +121,3 @@ return `
 
 </body>
 </html>
-`
-}
-module.exports = generateHTML;

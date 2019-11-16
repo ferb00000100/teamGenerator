@@ -7,11 +7,6 @@ describe("Employee class", () => {
 			expect(jason.getId()).toBe(14);
 		});
 
-		it("return full name", () => {
-			let jason = new Employee(14, 'Jason', 'Martin', 'Engineer','test@test.com','555-555-5555');
-			expect(jason.fullName()).toBe('Jason Martin');
-		});
-
 		it("return title", () => {
 			let jason = new Employee(14, 'Jason', 'Martin', 'Engineer','test@test.com', '555-555-5555');
 			expect(jason.getTitle()).toBe('Engineer');

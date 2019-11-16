@@ -7,8 +7,9 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateHTML = require("./generateHTML");
 const generateCSS = require("./generateCSS");
-
-//TODO find the current employee ID and start at the next number
+let managerArray = [];
+let engineerArray = [];
+let internArray = [];
 let employeeId = 0;
 
 // Prompts user for employee questions
@@ -64,36 +65,48 @@ function getEmployee () {
 // Initial function to grab all the answers and invoke methods to build html
 async function init() {
 
-		employeeId += 1;
-		const employee = await getEmployee();
-		const firstName = employee.firstName;
-		const title = employee.title;
-		const lastName = employee.lastName;
-		const email = employee.email;
-		const number = employee.officeNumber;
-		const github = employee.github;
-		const school = employee.school;
-		const team = employee.team;
+	// Set employee variables and run getEmployee function to prompt for employee information
+	employeeId += 1;
+	const employee = await getEmployee();
+	const firstName = employee.firstName;
+	const title = employee.title;
+	const lastName = employee.lastName;
+	const email = employee.email;
+	const number = employee.officeNumber;
+	const github = employee.github;
+	const school = employee.school;
+	const team = employee.team;
 
-		//TODO how to add html while it loops and not override HTML
+	// Based on the title of the employee run through the case statement
+	switch (title) {
 
-		if (title === 'Manager') {
-			const test = new Manager(employeeId, firstName, lastName, title, email, number, team);
-			const fullName = test.fullName();
-			const html = generateHTML(fullName, title, employeeId, number, team);
-			const css = generateCSS();
-			await writeFileAsync("assets/css/style.css", css);
-			await writeFileAsync("index.html", html);
-		}
-		if (title === 'Intern') {
-			let test = new Intern(employeeId, firstName, lastName, title, email, number, school)
-			console.log(test);
-		}
-		if (title === 'Engineer') {
-			let test = new Engineer(employeeId, firstName, lastName, title, email, number, github)
-			console.log(test);
-		}
-		await start();
+		case 'Manager':
+			let manager = new Manager(employeeId, firstName, lastName, title, email, number, team);
+			managerArray.push(manager);
+		break;
+
+		case 'Engineer':
+			let engineer = new Engineer(employeeId, firstName, lastName, title, email, number, github);
+			engineerArray.push(engineer);
+		break;
+
+		case 'Intern':
+			let intern = new Intern(employeeId, firstName, lastName, title, email, number, school);
+			internArray.push(intern);
+		break;
+
+		default:
+			return;
+	}
+
+	// restart the application to add additional users
+	start();
+
+	// call the generateHTML function and write employee arrays to the HTML
+	const html = generateHTML(managerArray, engineerArray, internArray);
+	const css = generateCSS();
+	await writeFileAsync("assets/css/style.css", css);
+	await writeFileAsync("output/team.html", html);
 
 }
 
@@ -107,13 +120,12 @@ async function go() {
 			message: "Would you like to add employees?",
 			choices: ["no", "yes"]
 		});
-	}
+}
 
 // This allows the user to select yes or no to continue to add employees
 async function start() {
 
 	const start = await go();
-	console.log(start.go);
 	if(start.go === 'yes'){
 		await init();
 	}
