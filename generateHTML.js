@@ -15,7 +15,14 @@ return `
 </head>
 <body>
 <body>
-<!--TODO make responsive so the cards stack-->
+
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">engineers R us</h1>
+		<p class="lead">view our team of talented engineers.</p>
+	</div>
+</div>
+
 <div class="d-flex container">
 	<div class="card p-1 mt-5 mx-auto shadow" style="width: 18rem;">
 		<div class="card-body">
@@ -66,7 +73,8 @@ return `
 					<li>Manages: ${manager.team}</li>
 				</ul>
 				`
-				)}
+				).join(' ')}
+<!-- The join <space> gets rid of the , from the array	-->
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,7 +102,8 @@ return `
 						<li>GitHub Username: ${engineer.github}</li>
 					</ul>
 					`
-				)}
+				).join(' ')}
+<!-- The join <space> gets rid of the , from the array	-->
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -122,7 +131,8 @@ return `
 						<li>School Attending: ${intern.school}</li>
 					</ul>
 					`
-				)}
+				).join(' ')}
+<!-- The join <space> gets rid of the , from the array	-->
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
